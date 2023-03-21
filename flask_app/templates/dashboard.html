@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berrydex</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename = '/css/style.css') }}">
+    <script defer src="{{ url_for('static', filename = '/js/app.js') }}"></script>
+</head>
+
+<body class="font-serif">
+
+    <header
+        class="flex flex-wrap content-center sticky top-0 h-20 bg-white w-full  p-5 z-50 border-b-2 shadow-lg rounded-b-xl ">
+        <div class="flex basis-1/4">
+            <h2 class="text-2xl  font-bold">Berrydex</h2>
+            <img src="" alt="">
+        </div>
+        <div class="basis-3/4 flex justify-around content-center gap-5">
+            <form action="/search" class="basis-1/2" id="searchForm" method="post">
+                <input type="text" placeholder="Search Berry" class="w-3/4 border-2 p-1" name="searchInput">
+                <button type="submit" class="border-2 p-1 rounded">Search</button>
+            </form>
+            <nav class="flex basis-1/2 justify-evenly content-center">
+                <a href="#home" class="text-lg"><span class="hover:text-red-500">Home</span></a>
+                <a href="#about" class="text-lg"><span class="hover:text-red-500">About</span></a>
+                <a href="/user_account" class="text-lg"><span class="hover:text-red-500">{{user.trainer_name}}'s
+                        Account</span></a>
+                <a href="/log_out" class="text-lg"><span class="text-red-400 font-semibold">Log Out</span></a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home"
+        class="flex flex-row gap-5 h-96 w-full px-10 min-h-screen bg-gradient-to-bl from-white to-red-400">
+        <div class="flex justify-center content-center gap-5 flex-col basis-1/2 z-30">
+            <h1 class="text-6xl font-bold">Gotta eat <span class="text-white z-40">em all</span></h1>
+            <p class="text-lg font-semibold text-white z-30">All the info you need to become a pokemon Champion. Find
+                out which berries trainers are using the most and
+                what each berry does. Create your own review and give tips for incoming beginners.
+            </p>
+        </div>
+        <div class="flex basis-1/2 p-5">
+            <div id="main-display" class="basis-1/2 h-3/4 flex flex-col flex-wrap p-2 gap-5 relative left-60 py-5">
+
+            </div>
+            <div
+                class="absolute right-56  w-96 h-96 bg-gradient-to-t from-white via-white to-red-400 rounded-full border-2 border-black/60">
+            </div>
+            <div
+                class="absolute right-96 top-80 w-96 h-96 bg-gradient-to-tr from-white via-white to-red-400 rounded-full border-2 border-black/60">
+            </div>
+        </div>
+    </section>
+
+    <section class="w-full min-h-screen bg-gradient-to-tl from-white to-red-400">
+        <h2 class="text-5xl font-semibold text-center mb-10">All Berries</h2>
+        <div id="berry-gallery" class="flex flex-wrap w-full ">
+            <div id='gallery-box' class="w-full flex flex-wrap gap-3.5 w p-3"></div>
+        </div>
+    </section>
+
+    <main
+        class="flex flex-wrap justify-center content-center min-h-screen bg-gradient-to-bl from-white to-red-400 font-mono">
+        <section id='container' class="flex flex-row bg-white w-4/5 rounded-3xl z-30 backdrop-blur-sm flex-none">
+            <div id='navbar'
+                class="flex flex-col flex-nowrap w-1/5 gap-10  justify-center content-center min-h-full p-5 bg-white rounded-l-3xl rounded-r-3xl border-r-2 border-slate-300">
+                <h2 class="text-4xl font-semibold underline">Berry Flavors</h2>
+                <a href="#spicy_container" id="spicy"
+                    class="text-lg font-semibold hover:underline hover:text-red-500 transition text-center">Spicy</a>
+                <a href="#dry_container"  id="dry"
+                    class="text-lg font-semibold hover:underline hover:text-red-500 transition text-center">Dry</a>
+                <a href="#sweet_container" id="sweet"
+                    class="text-lg font-semibold hover:underline hover:text-red-500 transition text-center">Sweet</a>
+                <a href="#bitter_container" id="bitter"
+                    class="text-lg font-semibold hover:underline hover:text-red-500 transition text-center">Bitter</a>
+            </div>
+            <div class="flex-1 w-2/3 max-h-full  p-5 gap-10" id="reviews">
+    
+                <section id="spicy_container" class="flex flex-row  overflow-x-scroll min-h-full gap-5 content-center"></section>
+                <section id="dry_container"></section>
+                <section id="sweet_container"></section>
+                <section id="bitter_container"></section>
+
+
+
+
+
+
+
+        </section>
+    </main>
+
+    <section id="about"
+        class="flex flex-row flex-wrap justify-center content-center w-full min-h-screen px-20 bg-gradient-to-tl from-white to-red-400">
+        <div class="flex flex-col justify-center content-center gap-5  mx-auto basis-1/2">
+            <h2 class="text-5xl font-semibold text-center">About</h2>
+            <p class="text-lg font-semibold text-black text-center">
+                I decided to add some spice and make the website unique by using food from a popular anime
+                called pokemon instead of using actual food.
+                Search for any pokemon berry you want and get the information you need.
+                If you like the berry, add the berry to your favorites list and write your own review on the berry as
+                well.
+            </p>
+        </div>
+    </section>
+
+</body>
+
+</html>
