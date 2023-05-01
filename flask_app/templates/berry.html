@@ -12,11 +12,11 @@
 </head>
 
 <body>
-    <main class="flex flex-wrap justify-center content-center min-h-screen bg-gradient-to-tr from-white to-red-300 font-mono font-sans">
-        <section class="flex flex-col bg-white w-4/5  rounded-3xl z-30 backdrop-blur-sm">
-            <div class="flex gap-3 ">
+    <main class="flex flex-wrap justify-center content-center min-h-screen bg-gradient-to-tr from-white to-red-300 font-mono flex-none">
+        <section class="flex flex-col bg-white w-4/5 min-h-screen max-h-screen rounded-3xl z-30 backdrop-blur-sm flex-none flex-grow-0">
+
+            <div class="flex gap-3 h-1/2 p-5">
                 <div id='berry-container' class="flex flex-col gap-5 basis-1/2 p-5 ">
-                
                 </div>
                 <div class="flex basis-1/2 p-5">
                     <form action="/create-berry-review" method="post">
@@ -27,7 +27,7 @@
                             <span class="block">
                                 Write Review:
                             </span>
-                            <textarea name="review_post" id="" cols="60" rows="10" class="border-2">
+                            <textarea name="review_post" id="" cols="30" rows="10" class="border-2">
                             </textarea>
                         </label>
                         <input type="submit" value="Create Review" class="p-1 border-2 border-red-300 bg-red-500 rounded-xl hover:bg-red-300 hover:-translate-y-3">
@@ -35,15 +35,16 @@
                     <a href="/dashboard" class="text-2xl font-semibold underline">Home</a>
                 </div>
             </div>
-            <h2 class="text-3xl font-semibold p-5 underline">Reviews</h2>
-            <div class="flex flex-col gap-5 h-full w-full p-5 ">
+            
+            <div class="flex flex-col gap-5 w-full p-5 h-1/2 overflow-y-scroll overflow-hidden">
+                <h2 class="text-3xl font-semibold p-5 underline">Reviews</h2>
                 {% for review in reviews%}
                     {% if trainer.id == review.trainer_id %} 
                         <div class="p-5 border-b-2 border-slate-300 flex justify-between">
                             <p>{{review.review_post}}</p>
-                            <div>
-                                <a href="/edit/{{review.id}}" class="p-1 bg-green-200 rounded-lg">Edit</a>
-                                <a href="/delete/{{review.id}}" class="p-1 bg-red-400 rounded-lg">Delete</a>
+                            <div class="flex gap-10">
+                                <a href="/edit-review/{{review.id}}" class="p-1 bg-gradient-to-t from-green-100 via-green-200 to-green-400 text-black rounded-lg">Edit</a>
+                                <a href="/delete/{{review.id}}" class="p-1 bg-gradient-to-b from-red-100 via-red-200 to-red-400 text-black rounded-lg">Delete</a>
                             </div>
                         </div>
                     {% else %}
@@ -52,11 +53,8 @@
                         </div>
                     {% endif %}
                 {% endfor %}
-                
-                
-                
-                
             </div>
+            
         </section>
     </main>
 

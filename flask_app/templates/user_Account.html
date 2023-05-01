@@ -45,7 +45,7 @@
                     
                 </div>
             </div>
-            <div class="flex-1 w-2/3 max-h-full overflow-hidden p-5 gap-10" id="reviews">
+            <div class="flex flex-col w-2/3 max-h-full overflow-hidden p-5 gap-10 flex-none" id="reviews">
 
                 <section id="reviews" class="flex flex-col gap-5 min-h-full overflow-y-scroll">
                     <h1 class="m-5 text-4xl font-bold mt-20">Reviews</h1>
@@ -54,7 +54,7 @@
                         <div class="flex justify-between content-center p-5 w-4/5 mx-auto  bg-slate-600/10 rounded-lg border-slate-500/50  shadow-xl">
                             <p class="text-md font-light">{{review.review_post}}</p>
                             <div class="flex content-end justify-center flex-wrap basis-1/2 gap-5">
-                                <a href="/user-edit/{{review.id}}" class="p-1 bg-green-300 rounded-lg">Edit</a>
+                                <a href="/edit-review/{{review['reviews.id']}}" class="p-1 bg-green-300 rounded-lg">Edit</a>
                                 <a href="/user-delete/{{review['reviews.id']}}" class="p-1 bg-red-400 rounded-lg">Delete</a>
                             </div>
                         </div>

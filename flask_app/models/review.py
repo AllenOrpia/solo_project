@@ -60,3 +60,12 @@ class Review:
         query = '''DELETE FROM reviews WHERE id = %(id)s;'''
         results = connectToMySQL(cls.db).query_db(query,{'id':id})
         return results
+    
+    @classmethod
+    def update_review_id(cls,data):
+        query = '''UPDATE reviews
+                    SET review_post =%(review_post)s, updated_at = NOW() WHERE id = %(id)s;'''
+        results = connectToMySQL(cls.db).query_db(query,data)
+        return results
+
+

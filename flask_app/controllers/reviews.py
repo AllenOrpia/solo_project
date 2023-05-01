@@ -52,3 +52,16 @@ def userDelete(id):
         return redirect('/log_out')
     review.Review.delete_by_id(id)
     return redirect('/user_account')
+
+@app.route('/edit-review/<int:id>')
+def editReview(id):
+    if 'trainer' not in session:
+        return redirect('/log_out')
+    return render_template('edit.html', id = id, review = review.Review.get_one_by_id(id))
+
+@app.route('/review-update' , methods =['POST'])
+def updateReview():
+    if 'trainer' not in session:
+        return redirect('/log_out')
+    review.Review.update_review_id(request.form)
+    return redirect(f'/berry/{request.form["berry_name"]}')
