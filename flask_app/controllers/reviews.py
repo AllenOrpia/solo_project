@@ -17,10 +17,16 @@ from flask_app.models.trainer import Trainer
 #     return render_template('berry.html', id = id, trainer = trainer , reviews = reviews, berry = berry ) 
 
 
+berries = ['cheri', 'chesto', 'pecha', 'rawst', 'aspear', 'leppa', 'oran', 'persim', 'lum', 'sitrus', 'figy', 'wiki', 'mago', 'aguav', 'iapapa', 'razz',
+           'bluk', 'nanab', 'wepear', 'pinap', 'pomeg', 'kelpsy','qualot', 'hondew', 'grepa', 'tamato', 'cornn', 'magost', 'rabuta', 'nomel', 'spelon', 'pamtre',
+            'watmel', 'durin', 'belue', 'occa', 'passho', 'wacan', 'rindo', 'yache', 'chople', 'kebia', 'shuca', 'coba', 'payapa', 'tanga', 'charti', 'kasib',
+             'haban', 'colbur', 'babiri', 'chilan', 'liechi', 'ganlon', 'salac', 'petaya', 'apicot', 'lansat', 'starf', 'enigma', 'micle', 'custap', 'jaboca', 'rowap' ]
 
 @app.route('/search', methods = ['POST'])
 def search_Berry_By_Name():
-    name = request.form['searchInput']
+    name = request.form['searchInput'].lower()
+    if name not in berries:
+        return render_template('404.html')
     return redirect(f'/berry/{name}') 
 
 @app.route('/berry/<string:name>')
@@ -30,7 +36,7 @@ def get_One_Berry_By_Name(name):
     reviews = review.Review.get_all_reviews_by_berry_name(name)
     email = session['trainer_email']
     trainer = Trainer.get_by_email(email)
-    return render_template('berry.html', name = name, trainer = trainer, reviews = reviews) 
+    return render_template('show_berry.html', name = name, trainer = trainer, reviews = reviews) 
 
 @app.route('/create-berry-review',methods=['POST'])
 def createBerryReview():

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berrydex</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename = '/css/style.css') }}">
+    <script defer src="{{ url_for('static', filename = '/js/berryflavor.js') }}"></script>
+</head>
+
+<body class="font-serif">
+
+    <header class="flex flex-wrap content-center h-20 bg-white w-full  p-5 z-50 border-b-2 shadow-lg rounded-b-xl ">
+        <div class="flex basis-1/4">
+            <p class="text-2xl  font-bold">Berrydex</p>
+            <img src="" alt="">
+        </div>
+        <div class="basis-3/4 flex justify-around content-center gap-5">
+            <nav class="flex basis-1/2 justify-evenly content-center z-50">
+                <a href="/dashboard" class="text-lg"><span class="hover:text-red-500">Home</span></a>
+                <a href="#about" class="text-lg"><span class="hover:text-red-500">Write A Review</span></a>
+                <a href="/user_account" class="text-lg"><span class="hover:text-red-500">{{user.trainer_name}}'s
+                        Account</span></a>
+                <a href="/log_out" class="text-lg"><span class="text-red-400 font-semibold">Log Out</span></a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="bg-white">
+        <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+
+            <h1 class="mb-5 text-5xl font-bold"><span id="berry_flavor">{{flavor}}</span> Berries</h1>
+            <div class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8"
+                id="berry_flavor_container">
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+</body>

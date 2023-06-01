@@ -53,7 +53,7 @@ def dashboard():
         return redirect('/log_out')
     email = session['trainer_email']
     user = Trainer.get_by_email(email)
-    return render_template('dashboard.html', user = user)
+    return render_template('index.html', user = user)
 
 @app.route('/user_account')
 def account():
@@ -61,7 +61,7 @@ def account():
         return redirect('/log_out')
     user = Trainer.get_by_email(session['trainer_email'])
     reviews = Trainer.get_trainer_with_reviews(session['trainer_email'])
-    return render_template('user_Account.html', reviews = reviews, user = user)
+    return render_template('user_account.html', reviews = reviews, user = user)
 
 @app.route('/log_out')
 def log_out():

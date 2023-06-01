@@ -15,16 +15,16 @@
 <body class="font-serif">
 
     <header
-        class="flex flex-wrap content-center sticky top-0 h-20 bg-white w-full  p-5 z-50 border-b-2 shadow-lg rounded-b-xl ">
+        class="flex flex-wrap   content-center sticky top-0 h-20 bg-white w-full  p-5 z-50 border-b-2 shadow-lg rounded-b-xl ">
         <div class="flex basis-1/4">
             <h2 class="text-2xl  font-bold">Berrydex</h2>
             <img src="" alt="">
         </div>
-        <div class="basis-3/4 flex justify-around content-center gap-5">
+        <div class="basis-3/4 flex justify-end content-center gap-5">
             <nav class="flex basis-1/2 justify-evenly content-center z-50">
                 <a href="#home" class="text-lg"><span class="hover:text-red-500">Home</span></a>
                 <a href="#about" class="text-lg"><span class="hover:text-red-500">About</span></a>
-                <a href="#about" class="text-lg"><span class="hover:text-red-500">Write A Review</span></a>
+              
                 <a href="/user_account" class="text-lg"><span class="hover:text-red-500">{{user.trainer_name}}'s
                         Account</span></a>
                 <a href="/log_out" class="text-lg"><span class="text-red-400 font-semibold">Log Out</span></a>
@@ -33,7 +33,7 @@
     </header>
 
     <section id="home"
-        class="flex flex-row gap-5 h-96 w-full px-10 min-h-screen bg-gradient-to-bl from-white to-red-400">
+        class="flex flex-row gap-5 h-96 w-full px-10 min-h-screen bg-gradient-to-t from-white to-red-300">
         <div class="flex flex-wrap justify-center content-center gap-5 flex-col basis-1/2 z-30">
             <h1 class="text-6xl font-bold text-center">Gotta eat <span class="text-white z-40">em all</span></h1>
             <p class="text-2xl font-semibold text-black z-30 text-center">All the info you need to become a pokemon Champion. Find
@@ -45,15 +45,9 @@
             </form>
            
         </div>
-        <div class="flex basis-1/2 p-5">
-            <img src="{{ url_for('static', filename = '/images/undraw_feedback_re_urmj.svg') }}" alt="" class="z-40 w-3/4 h-3/4"> 
-            <div
-                class="absolute right-56 top-48   w-48 h-48 bg-gradient-to-t from-white via-white to-red-400 rounded-full border-2 border-black/60">
-            </div>
-            <div
-                class="absolute right-36 top-80 w-48 h-48 bg-gradient-to-tr from-white via-white to-red-400 rounded-full border-2 border-black/60">
-            </div>
-        </div>
+        <img src="{{ url_for('static', filename = '/images/undraw_feedback_re_urmj.svg') }}" alt="" class="z-40 w-3/4 h-3/4 mt-10"> 
+           
+        
     </section>
 
     <!-- <section class="w-full min-h-screen bg-gradient-to-tl from-white to-red-400">
@@ -63,30 +57,29 @@
         </div>
     </section> -->
 
-   <section class="bg-white">
-        <div class="flex flex-col  gap-10  w-4/5 mx-auto my-auto">
-            <h2 class="text-5xl font-semibold text-black text-center mt-20">Berry Flavors</h2>
+   <section class="flex flex-col flex-wrap justify-center content-center bg-white min-h-screen gap-10">
+            <h2 class="text-5xl font-semibold text-black text-center ">Berry Flavors</h2>
             <div class=" flex flex-col  w-full gap-5">
                 <div class="flex  justify-around">
-                    <a class="flex flex-col w-1/4 h-1/3 p-5 bg-slate-100/50 content-center flex-wrap rounded-xl gap-5 hover:shadow-2xl hover:-translate-y-3" href="">
+                    <a class="flex flex-col w-1/4 h-1/3 p-5 bg-slate-100/50 content-center flex-wrap rounded-xl gap-5 hover:shadow-2xl hover:-translate-y-3" href="/flavors/Spicy">
                         <img src="{{ url_for('static', filename = '/images/undraw_typing_re_d4sq.svg') }}" alt="" class="w-1/3">
                         <p class="text-center font-semibold text-2xl">Spicy</p>
                     </a>
-                    <a class="flex flex-col w-1/4 h-1/3 p-5 bg-slate-100/50 content-center flex-wrap rounded-xl gap-5 hover:shadow-2xl hover:-translate-y-3" href="">
+                    <a class="flex flex-col w-1/4 h-1/3 p-5 bg-slate-100/50 content-center flex-wrap rounded-xl gap-5 hover:shadow-2xl hover:-translate-y-3" href="/flavors/Sweet">
                         <img src="{{ url_for('static', filename = '/images/undraw_typing_re_d4sq.svg') }}" alt="" class="w-1/3">
                         <p class="text-center font-semibold text-2xl">Sweet</p>
                     </a>
-                    <a class="flex flex-col w-1/4 h-1/3 p-5 bg-slate-100/50 content-center flex-wrap rounded-xl gap-5 hover:shadow-2xl hover:-translate-y-3" href="">
+                    <a class="flex flex-col w-1/4 h-1/3 p-5 bg-slate-100/50 content-center flex-wrap rounded-xl gap-5 hover:shadow-2xl hover:-translate-y-3" href="/flavors/Bitter">
                         <img src="{{ url_for('static', filename = '/images/undraw_typing_re_d4sq.svg') }}" alt="" class="w-1/3">
                         <p class="text-center font-semibold text-2xl">Bitter</p>
                     </a>
                 </div>
                 <div class="flex  justify-around">
-                    <a class="flex flex-col w-1/4 h-1/3 p-5 bg-slate-100/50 content-center flex-wrap rounded-xl gap-5 hover:shadow-2xl hover:-translate-y-3" href="">
+                    <a class="flex flex-col w-1/4 h-1/3 p-5 bg-slate-100/50 content-center flex-wrap rounded-xl gap-5 hover:shadow-2xl hover:-translate-y-3" href="/flavors/Sour">
                         <img src="{{ url_for('static', filename = '/images/undraw_typing_re_d4sq.svg') }}" alt="" class="w-1/3">
                         <p class="text-center font-semibold text-2xl">Sour</p>
                     </a>
-                    <a class="flex flex-col w-1/4 h-1/3 p-5 bg-slate-100/50 content-center flex-wrap rounded-xl gap-5 hover:shadow-2xl hover:-translate-y-3" href="">
+                    <a class="flex flex-col w-1/4 h-1/3 p-5 bg-slate-100/50 content-center flex-wrap rounded-xl gap-5 hover:shadow-2xl hover:-translate-y-3" href="/flavors/Dry">
                         <img src="{{ url_for('static', filename = '/images/undraw_typing_re_d4sq.svg') }}" alt="" class="w-1/3">
                         <p class="text-center font-semibold text-2xl">Dry</p>
                     </a>
@@ -96,21 +89,20 @@
                 
              
             </div>
-        </div>
    </section>
 
     <section id="about"
-        class="flex flex-row flex-wrap justify-center content-center w-full min-h-screen px-20 bg-white">
-        <div class="flex flex-col justify-center content-center gap-5  w-3/4 mx-auto">
+        class="flex flex-row flex-wrap justify-center content-center w-full min-h-screen px-20 bg-gradient-to-b from-white  to-red-300 ">
+        <div class="flex flex-col justify-center content-center gap-10  w-3/4 mx-auto">
             <h2 class="text-5xl font-semibold text-center">About</h2>
             <div class="flex w-full min-h-full gap-3">
-                <div class="flex flex-wrap justify-center content-center basis-1/3 h-96 bg-slate-100/50">
+                <div class="flex flex-wrap justify-center content-center basis-1/3 h-96 bg-slate-100/50 rounded-xl shadow-lg">
                     <p class="text-xl text-center">Search for Berries that suits your favorite pokemon</p>
                 </div>
-                <div class="flex flex-wrap justify-center content-center basis-1/3 h-96 bg-slate-100/50">
+                <div class="flex flex-wrap justify-center content-center basis-1/3 h-96 bg-slate-100/50 rounded-xl shadow-lg">
                     <p class="text-xl text-center">Find out the effects of Berries</p>
                 </div>
-                <div class="flex flex-wrap justify-center content-center basis-1/3 h-96 bg-slate-100/50">
+                <div class="flex flex-wrap justify-center content-center basis-1/3 h-96 bg-slate-100/50 rounded-xl shadow-lg">
                     <p class="text-xl text-center">Determine what flavor works best for your pokemon</p>
                 </div>
             </div>

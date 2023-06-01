@@ -113,7 +113,6 @@ const getBerriesByFlavor = async () => {
         
         a.innerHTML = `${results[i].berry.name}`.toUpperCase()
         a.href = '/berry/' + (results[i].berry.name)
-        a.classList.add( 'hover:-translate-y-2','text-center','font-semibold')
         newDiv.classList.add('flex', 'flex-col', 'flex-wrap','w-1/3', 'min-h-full', 'bg-gradient-to-tr', 'from-white/70', 'to-white/30', 'rounded-2xl' , 'z-20','justify-center','content-center', 'flex-wrap', 'backdrop-blur-sm')
         
         img.src = res3Img
